@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<style id="webmakerstyle">
+body{
+  margin-left:20%;
+  margin-right:20%;
+  margin-top:5%;
+  background-color:whitesmoke;
+}
+
+div{
+  background-color:whitesmoke;
+  width:fit-content;
+  font-size:2rem;
+  padding:1rem;
+  border:2pt solid whitesmoke;
+  border-radius:30pt;
+  box-shadow:9pt 9pt 15pt -5pt;
+  perspective:1000px;
+  animation: div-rotate 5s ease-in-out alternate infinite,
+    shadow-move 5s linear alternate infinite
+    ;
+}
+
+div:hover{
+  background-color:red;
+  transition:background-color 1s;
+  border-color:black;
+  border:5pt solid black;
+}
+
+.info{
+  font-weight:bolder;
+  letter-spacing:2px;
+  margin-top:2rem;
+  text-align:center;
+}
+
+.info span{
+  font-size:1rem;
+  padding:0 10pt;
+  background-color:white;
+}
+@keyframes shadow-move{
+  
+  0%{
+      box-shadow:9pt 9pt 15pt -5pt;
+  }
+  
+  25%{
+      box-shadow:-9pt 9pt 15pt -5pt;
+  }
+  
+  50%{
+      box-shadow:-9pt -9pt 15pt -5pt;
+      border-color: black;
+      border-style:dashed;
+  }
+  
+  100%{
+      box-shadow:9pt -9pt 15pt -5pt;
+  }
+  
+}
+
+@keyframes div-rotate{
+  
+  0%{
+    transform:rotate(10deg);
+  }
+/*   25%{
+    transform:rotate(5deg);
+    border-radius:100pt;
+  }*/
+  50%{
+      border-radius:100pt;
+  }
+  100%{
+    transform:rotate(-10deg);    
+  }  
+  
+}
+
+</style>
+</head>
+<body>
+
+<div class="move-area">
+  <div>
+      <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <div>
+                        <div>
+                          <div>
+                            <div>
+                              <div></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<section class="info">
+ | click over the box to change background color | <br>
+  | move pointer over the animation see diferent effect | <br>
+  
+  <span> [== @#MachineNo15! ==] </span>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+
+function r(){
+    var c = ['red','blue','deeppink','cyan','yellow','orangered','green','lime','black','crimson'];
+  var r = (Math.random() * 10).toString()[0];
+  var e = document.getElementsByTagName('div');
+  e[r].style.backgroundColor = c[r];
+}
+
+function x(){
+  var r = (Math.random() * 10).toString()[0];
+  var e = document.getElementsByTagName('div');
+  e[r].style.backgroundColor = 'whitesmoke';
+}
+
+
+window.setInterval(function(){r()},700)
+window.setInterval(function(){x()},2000)
+
+
+var body = document.getElementsByTagName('body')[0];
+body.addEventListener('click',function(){
+  var bg =['red','blue','deeppink',
+        'cyan','yellow','orangered',
+        'green','lime','white','crimson'];
+
+  var r = (Math.random() * 10).toString()[0];
+  body.style.backgroundColor = bg[r];
+  body.style.transition = 'background-color 1s';
+});
+
+//# sourceURL=userscript.js
+</script>
+</body>
+</html>
